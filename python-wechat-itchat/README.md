@@ -1,4 +1,4 @@
-# python-wechat-itchat
+# myitwechat
 
 - pip install itchat
 - pip install jieba

@@ -102,5 +102,6 @@ def information(msg):
             # 删除字典旧消息
             msg_information.pop(old_msg_id)
 
+
 itchat.auto_login(hotReload=True)
 itchat.run()

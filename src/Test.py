@@ -5,7 +5,7 @@ from src.algorithm.mysorts import MySorts
 
 lst1 = [123, 24, 234, 444, 562, 2, 45, 73, 36]
 
-my_sorts = MySorts()
+# my_sorts = MySorts()
 
 # print(my_sorts.quick_sort(lst1))
 # print(my_sorts.selection_sort(lst1))
@@ -16,9 +16,15 @@ my_sorts = MySorts()
 # end = time.clock()
 #
 # print(end - start)
-lst2 = deque(lst1)
+# lst2 = deque(lst1)
+#
+# print(lst2.pop())
+# print(lst2)
+# print(lst2.popleft())
+# print(lst2)
 
-print(lst2.pop())
-print(lst2)
-print(lst2.popleft())
-print(lst2)
+import numpy as np
+
+l = np.array(lst1).reshape(3, 3)
+
+print(l)

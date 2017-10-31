@@ -26,7 +26,7 @@ web_data.encoding = 'utf-8'
 
 doc = pq(web_data.text)
 t = doc('.tweet-content').text()
-
+print(t)
 d = path.dirname(__file__)  # # # Read the whole text.
 # # text = open(path.join(d, 'yes_minister.txt'), encoding='utf-8').read()
 

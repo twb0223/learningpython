@@ -1,30 +1,33 @@
-import time
-from collections import deque
+from flask import Flask
+from flask import render_template
 
-from src.algorithm.mysorts import MySorts
+from algorithm.mysorts import MySorts
 
-lst1 = [123, 24, 234, 444, 562, 2, 45, 73, 36]
+app = Flask(__name__)
 
-# my_sorts = MySorts()
 
-# print(my_sorts.quick_sort(lst1))
-# print(my_sorts.selection_sort(lst1))
-# start = time.clock()
-#
-# print(my_sorts.merge_sort(lst1))
-#
-# end = time.clock()
-#
-# print(end - start)
-# lst2 = deque(lst1)
-#
-# print(lst2.pop())
-# print(lst2)
-# print(lst2.popleft())
-# print(lst2)
+class Human():
+    def somemethod(self):     
+        return "aaa";
 
-import numpy as np
 
-l = np.array(lst1).reshape(3, 3)
+@app.route('/<name>')
+def user(name):
+    arr=[23,43,546,78,1,324]
+    MySorts.insert_sort(arr)
+    mydict = {"key": "This is a Flask Program"}
+    mylist = arr
+    myintvar = 0
+    myobj = Human()
 
-print(l)
+    return render_template(
+        'index.html',
+        name=name,
+        mydict=mydict,
+        mylist=mylist,
+        myintvar=myintvar,
+        myobj=myobj)
+
+
+if __name__ == '__main__':
+    app.run()

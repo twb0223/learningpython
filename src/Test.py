@@ -3,12 +3,13 @@ from flask import render_template
 
 from algorithm.mysorts import MySorts
 
+
 app = Flask(__name__)
 
 
 class Human():
-    def somemethod(self):     
-        return "aaa";
+    def somemethod(self):
+        return self
 
 
 @app.route('/<name>')

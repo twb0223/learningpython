@@ -1,20 +1,22 @@
 import MySQLdb
 
 # 打开数据库连接
-db = MySQLdb.connect(
-    "bdm275410299.my3w.com","bdm275410299","tanwenbin","bdm275410299_db")
+mysqldb = MySQLdb.connect(
+    "bdm275410299.my3w.com", "bdm275410299", "tanwenbin", "bdm275410299_db")
 
-# 使用cursor()方法获取操作游标 
-cursor = db.cursor()
+cursor = mysqldb.cursor()
 
 # 使用execute方法执行SQL语句
-cursor.execute("show table status")
+cursor.execute("Select * from t_girl limit 10 ")
+
+res1=cursor.fetchone()
+print(res1)
 
 # 使用 fetchone() 方法获取一条数据
-res=cursor.fetchall()
+res = cursor.fetchall()
 for row in res:
     print(row)
 
 
 # 关闭数据库连接
-db.close()
+mysqldb.close()

@@ -7,7 +7,7 @@ mysqldb = MySQLdb.connect(
 cursor = mysqldb.cursor()
 
 # 使用execute方法执行SQL语句
-cursor.execute("Select * from t_girl limit 10 ")
+cursor.execute("Select * from t_girl limit 100 ")
 
 res1=cursor.fetchone()
 print(res1)

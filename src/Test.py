@@ -4,7 +4,6 @@ from algorithm.mysorts import MySorts
 
 app = Flask(__name__)
 
-
 class Human():
     def somemethod(self):
         return self

@@ -17,7 +17,6 @@ class Node():
     def setNext(self, newnext):
         self._next = newnext
 
-
 class SingleLinkedList():
     def __init__(self):
         self._head = None

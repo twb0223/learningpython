@@ -45,6 +45,5 @@ def user(name):
 def get_tasks():
     return jsonify({'tasks': tasks})
 
-
 if __name__ == '__main__':
     app.run()

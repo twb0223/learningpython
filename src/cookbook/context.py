@@ -1,5 +1,6 @@
 '''
 上下文管理器，要实现__enter__ 和__exit__方法
+
 '''
 
 class openfile(object):

@@ -1,3 +1,8 @@
-t = ('北京', '上海', ['重庆', '南京'])
-t[2][1] = 'Aa'
-print(t)
+def exmaple2(required_arg, *arg, **kwarg):
+    if arg:
+        print("arg: ", arg)
+
+    if kwarg:
+        print("kwarg: ", kwarg)
+
+exmaple2("Hi", 4,'j','k',4, keyword1 = "bar", keyword2 = "foo")

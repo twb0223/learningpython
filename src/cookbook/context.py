@@ -19,4 +19,5 @@ class openfile(object):
 
 with openfile('my.txt', 'w') as f:
     f.write('hi \n')
+    f.write('hi \n')
     f.write('nihao')

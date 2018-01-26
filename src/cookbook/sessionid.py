@@ -1,8 +1,6 @@
-def exmaple2(required_arg, *arg, **kwarg):
-    if arg:
-        print("arg: ", arg)
+# -*- coding: utf-8 -*-
+L1 = ['Hello', 'World', 18, 'Apple', None]
 
-    if kwarg:
-        print("kwarg: ", kwarg)
+L2=[s.lower() for s in L1 if isinstance(s,str)]
 
-exmaple2("Hi", 4,'j','k',4, keyword1 = "bar", keyword2 = "foo")
+print(L2)

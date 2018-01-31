@@ -17,6 +17,7 @@ res = cursor.fetchall()
 for row in res:
     print(row)
 
-
 # 关闭数据库连接
 mysqldb.close()
+
+

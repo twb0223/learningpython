@@ -1,6 +1,8 @@
 
+import md5,time,base64,string
+
 def makeSessionId(st):
-    import md5,time,base64,string
+
     m.update('this iiii')
     m.update(str(time.time()))
     m.update(st)

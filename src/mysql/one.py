@@ -19,5 +19,3 @@ for row in res:
 
 # 关闭数据库连接
 mysqldb.close()
-
-

@@ -4,6 +4,7 @@ from algorithm.mysorts import MySorts
 
 app = Flask(__name__)
 
+
 class Human():
     def somemethod(self):
         return self
@@ -43,6 +44,7 @@ def user(name):
 @app.route('/api/tasks', methods=['GET'])
 def get_tasks():
     return jsonify({'tasks': tasks})
+
 
 if __name__ == '__main__':
     app.run()

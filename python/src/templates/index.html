@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../static/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        button {
+            width: 90px;
+            margin-right: 10px;
+            border-radius: 5px;
+            background: silver;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+
+        <button @click='getData(2)'>.Net</button>
+        <button @click='getData(3)'>Java</button>
+        <button @click='getData(1)'>Python</button>
+        <input id="search" v-model="key">
+        <span>key:{{key}}</span>
+      
+        <span>desc:{{desc}}</span>
+        <hr>
+        <span>Total:{{dataJosn.length}}</span>
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>公司名称</th>
+                <th>工资</th>
+                <th>职位</th>
+            </tr>
+            <tr v-for="(item, index) in dataJosn">
+                <td>{{index+1}}</td>
+                <td>{{item.Company}}</td>
+                <td>{{item.Salary}}</td>
+                <td>{{item.Posion}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="../static/kendo.all.min.js"></script>
+
+</html>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            dataJosn: [],
+            key: '',
+            desc:''
+        },
+        mounted: function () {
+            var _this = this;
+            $("#search").kendoAutoComplete({
+                dataTextField: "Code",
+                dataSource: {
+                    transport: {
+                        read: {
+                            type: "post",
+                            dataType: "json",
+                            url: "/get_json2",
+                            data: {
+                                Code: function () {
+                                    return _this.key
+                                }
+                            }
+                        }
+                    }
+                },
+                select: function (e) {
+                    _this.key = e.dataItem.Code;
+                    _this.desc = e.dataItem.DispName;
+                },
+                template:"<span>${Code} (${DispName})</span>",
+                filter: "contains",
+                placeholder: "--请选择--"
+            });
+        },
+        methods: {
+            getData: function (type) {
+                var _this = this;
+                _this.dataJosn = [];
+                $.getJSON('/get_json?type=' + type, function (data) {
+                    for (let index = 0; index < data.length; index++) {
+                        const element = data[index];
+                        _this.dataJosn.push(element)
+                    }
+                })
+            }
+        }
+    })
+</script>

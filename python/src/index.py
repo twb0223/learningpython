@@ -70,11 +70,11 @@ def getdata():
     res=[]
     df=[]
     if (text is '1'):
-        df = pandas.read_json('./zl_python.json', encoding='utf-8')
+        df = pandas.read_json('./python/zl_python.json', encoding='utf-8')
     elif (text is '2'):
-        df = pandas.read_json('./zl_net.json', encoding='utf-8')      
+        df = pandas.read_json('./python/zl_net.json', encoding='utf-8')      
     else:
-        df = pandas.read_json('./zl_java.json', encoding='utf-8')
+        df = pandas.read_json('./python/zl_java.json', encoding='utf-8')
 
     res = df.to_json(orient='records', force_ascii=False)
     return res

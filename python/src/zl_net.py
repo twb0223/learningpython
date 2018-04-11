@@ -17,7 +17,7 @@ headers={
 
 for p in range(1,50):
 
-    url='http://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E6%AD%A6%E6%B1%89&kw=.net&sm=0&p='+str(p)
+    url='http://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E6%AD%A6%E6%B1%89&kw=C#&sm=0&p='+str(p)
 
     re=requests.get(url,headers=headers)
     bs=BeautifulSoup(re.text,'lxml')
@@ -41,4 +41,4 @@ for p in range(1,50):
         if(len(res)>0):
             pos.append(res)
 
-pandas.DataFrame(pos).to_json('zl.json',orient='records')
+pandas.DataFrame(pos).to_json('./python/zl_net.json',orient='records')

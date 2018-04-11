@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="../static/kendo.common.min.css" rel="stylesheet" type="text/css" />
     <style>
         table {
             border-collapse: collapse;
@@ -35,10 +34,6 @@
         <button @click='getData(2)'>.Net</button>
         <button @click='getData(3)'>Java</button>
         <button @click='getData(1)'>Python</button>
-        <input id="search" v-model="key">
-        <span>key:{{key}}</span>
-      
-        <span>desc:{{desc}}</span>
         <hr>
         <span>Total:{{dataJosn.length}}</span>
         <table>
@@ -59,7 +54,7 @@
 </body>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="../static/kendo.all.min.js"></script>
+
 
 </html>
 <script>
@@ -69,34 +64,7 @@
             message: 'Hello Vue!',
             dataJosn: [],
             key: '',
-            desc:''
-        },
-        mounted: function () {
-            var _this = this;
-            $("#search").kendoAutoComplete({
-                dataTextField: "Code",
-                dataSource: {
-                    transport: {
-                        read: {
-                            type: "post",
-                            dataType: "json",
-                            url: "/get_json2",
-                            data: {
-                                Code: function () {
-                                    return _this.key
-                                }
-                            }
-                        }
-                    }
-                },
-                select: function (e) {
-                    _this.key = e.dataItem.Code;
-                    _this.desc = e.dataItem.DispName;
-                },
-                template:"<span>${Code} (${DispName})</span>",
-                filter: "contains",
-                placeholder: "--请选择--"
-            });
+            desc: ''
         },
         methods: {
             getData: function (type) {

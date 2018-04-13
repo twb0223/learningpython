@@ -3,13 +3,6 @@
         <div class="logo">
             <img src="../assets/img/face.jpg" alt="">
         </div>
-<<<<<<< HEAD
-        <div id="menu">
-            
-        </div>
-        <router-view/>
-=======
->>>>>>> ff7a14f2154a7dfc23e207e860672a94371d9191
     </div>
 </template>
 
